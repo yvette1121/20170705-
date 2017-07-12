@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>关于杰宝</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/css.css" />
+		<script src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript" src="js/jbdw.js" ></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=0ifQQ7FT4vuMYGQOHrdGaETAlKxS0hgp"></script>
+	</head>
+	<body>
+		<div class="bg-all" id="bg-all">
+			<div class="border">
+				<div class="jiebao-top">
+					<img class="jiebao-logo" src="img/logo.png" />
+					<div class="jiebao-tel-box">
+						<span class="iconfont">&#xe745;</span>
+						<span>全国服务热线：400-000000</span>
+					</div>
+				</div>
+			</div>
+			<div class="jiebao-menu-box">
+				<ul class="jiebao-menu">
+					<a href="index.html">首页</a>
+					<a href="about.html">关于杰宝</a>
+					<a href="products.html">产品中心</a>
+					<a>在线商城</a>
+					<a href="service.html">精诚服务</a>
+					<a href="news.html">最新动态</a>
+					<a href="add.html">招商加盟</a>
+					<a class="menu-active">联系我们</a>
+				</ul>
+			</div>
+			<div class="about-bg1 link-bg1"></div>
+			<div class="about-text-box">
+				<div class="about-text-header">
+					<p class="fzltqh"><span style="color: #3083EB;">CONTACT</span> US</p>
+					<p style="color: #3083EB;font-size: 24px;">联系我们</p>
+				</div>
+				<div class="about-text-body link-text-box">
+					<div id="allmap" style="width: 700px;height: 480px;float: right;"></div>
+					<p style="margin-top: 120px;">
+						“杰宝”人愿以自己十分的辛劳换取您一份满意！
+					</p>
+					<p>
+						“杰宝”人愿与您在事业上真诚合作，共筹辉煌！
+					</p>
+					<p style="margin-top: 50px;">
+						<small>联系电话：021-59952163</small>
+					</p>
+					<p>
+						<small>售后电话：021-59950399</small>
+					</p>
+					<p>
+						<small>邮编：201618</small>
+					</p>
+					<p>
+						<small>地址：上海市嘉定区华亭镇嘉行公路2969号杰宝大王总厂</small>
+					</p>
+				</div>
+			</div>
+			<div class="jiebao-link">
+				<div class="jiebao-link-center">
+					<div class="jiebao-link-left">
+						<h3>联系我们</h3>
+						<p>“杰宝”人愿以自己十分的辛劳换取您一份满意！<br />“杰宝”人愿与您在事业上真诚合作，共铸辉煌！</p>
+						<p><small>联系电话：021-59952163<br>售后电话：021-59950399<br>邮编：201618<br>地址：上海市嘉定区华亭镇嘉行公路2969号杰宝大王总长</small></p>
+					</div>
+					<div class="jiebao-link-right">
+						<label>名称 NAME</label>
+						<input type="text" />
+						<span>*</span>
+						<label>邮箱 E-MAIL</label>
+						<input type="text" />
+						<span>*</span>
+						<label>留言 LEAVING YOUR MESSAGE</label>
+						<textarea cols="3"></textarea>
+						<button type="submit">提交</button>
+					</div>
+				</div>
+				
+				
+			</div>
+			<div class="footer">
+				<p>COPYRIGHT(©)上海杰宝大王企业发展有限公司 All Rights Reserved<br>ICP:沪ICP备05054515号经营许可证号：3215415215154551（3/10）</p>
+			</div>
+			<div class="show-bg">
+				<img id="code" style="float: right;margin-top: 40px;" width="100px" height="100px" src="img/code.png" />
+				<p id="show" class="phone-bg">
+					<span class="iconfont">&#xe99c;</span>
+				</p>
+
+			</div>
+			<span id="toTop" class="iconfont">&#xe72a;</span>
+		</div>
+		<script type="text/javascript">
+			function SelectControl(){
+				// 默认停靠位置和偏移量
+				this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT;
+				this.defaultOffset = new BMap.Size(100, 80);
+			}
+			function ButtonControl(){
+				// 默认停靠位置和偏移量
+				this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT;
+				this.defaultOffset = new BMap.Size(300, 80);
+			}
+			$(document).ready(function(){
+				// 百度地图API功能
+				var map = new BMap.Map("allmap");                 // 创建Map实例
+				// map.centerAndZoom(new BMap.Point(121.465969,31.228027),12);  //初始化时，即可设置中心点和地图缩放级别。
+				map.centerAndZoom("上海",9);
+				map.enableScrollWheelZoom(true);	//开启鼠标滚轮缩放
+				map.disableDragging();     //禁止拖拽
+				setTimeout(function(){
+					map.enableDragging();   //两秒后开启拖拽
+					//map.enableInertialDragging();   //两秒后开启惯性拖拽
+				}, 2000);
+				var geolocationControl = new BMap.GeolocationControl();
+				geolocationControl.addEventListener("locationSuccess", function(e){
+					// 定位成功事件
+					var address = '';
+					address += e.addressComponent.province;
+					address += e.addressComponent.city;
+					address += e.addressComponent.district;
+					address += e.addressComponent.street;
+					address += e.addressComponent.streetNumber;
+					alert("当前定位地址为：" + address);
+				});
+				geolocationControl.addEventListener("locationError",function(e){
+					// 定位失败事件
+					alert(e.message);
+				});
+				map.addControl(geolocationControl);
+				var local = new BMap.LocalSearch(map, {
+					renderOptions:{map: map}
+				});
+				local.search("上海大王保险箱总厂");
+				SelectControl.prototype = new BMap.Control();
+				ButtonControl.prototype = new BMap.Control();
+				SelectControl.prototype.initialize = function(map){
+					// 创建一个DOM元素
+					var div = document.createElement("input");
+					// 添加文字说明
+					// 设置样式
+					div.value = "上海市嘉定区华亭镇嘉行公路2969号杰宝大王总厂"
+					div.id = "keyword";
+					div.style.height ="35px"
+					div.style.borderRadius = '0';
+					div.style.webkitAppearance ='none';
+					div.style.lineHeight = '35px'
+					div.style.marginTop ='-60px'
+					div.style.marginLeft ='-80px'
+					div.style.cursor = "pointer";
+					div.style.border = "none";
+					div.style.backgroundColor = "white";
+					div.style.lineHeight = "35px"
+					div.style.fontSize = "16px";
+					div.style.paddingLeft = "10px"
+					div.style.paddingRight = "10px"
+					div.style.width = "300px";
+					div.style.textAlign = "left";
+					// 添加DOM元素到地图中
+					map.getContainer().appendChild(div);
+					// 将DOM元素返回
+					return div;
+				}
+				ButtonControl.prototype.initialize = function(map){
+					// 创建一个DOM元素
+					var div = document.createElement("div");
+					var div2=div.appendChild(document.createElement("img"));
+					// 添加文字说明
+					// 设置样式
+					div2.src="img/lin1.png";
+					div2.style.width="20px";
+					div2.style.height="20px";
+					div2.style.marginTop='7px'
+					div.style.marginTop ='-60px'
+					div.style.marginLeft ='40px'
+					div.style.lineHeight = '35px'
+					div.style.cursor = "pointer";
+					div.style.color = "white";
+					div.style.backgroundColor = "#3385FF";
+					div.style.width = "50px";
+					div.style.height = "35px"
+					div.style.textAlign = "center";
+					// 绑定事件,点击一次放大两级
+					div.onclick = function(e){
+						if(cityFlag==true){
+							map.centerAndZoom($("#city").text(),11);
+						}
+						else if(provinceFlag==true){
+							map.centerAndZoom($("#province").text(),11);
+						}
+					}
+					// 添加DOM元素到地图中
+					map.getContainer().appendChild(div);
+					// 将DOM元素返回
+					return div;
+				}
+				var mySelectCtrl = new SelectControl();
+				var myButtonCtrl = new ButtonControl();
+				map.addControl(mySelectCtrl);
+				map.addControl(myButtonCtrl);
+			})
+				
+		</script>
+
+	</body>
+</html>

@@ -3,7 +3,21 @@
 	src: url('iconfont.eot');
 	src: url('iconfont.eot?#iefix') format('embedded-opentype'), url('iconfont.woff') format('woff'), url('iconfont.ttf') format('truetype'), url('iconfont.svg#iconfont') format('svg');
 }
-
+@font-face {
+	font-family: "fzltkh";
+	src: url('fzltkh.ttf'); /* IE9+ */
+}
+@font-face {
+	font-family: "fzzzht";
+	src: url('fzztht.ttf'); /* IE9+ */
+}
+@font-face {
+	font-family: "fzltqh";
+	src: url('fzltqh.ttf'); /* IE9+ */
+}
+a {
+	text-decoration: none;
+}
 .iconfont {
 	font-family: "iconfont" !important;
 	font-size: 16px;
@@ -12,16 +26,26 @@
 	-webkit-text-stroke-width: 0.2px;
 	-moz-osx-font-smoothing: grayscale;
 }
-
+.fzltkh {
+	font-family: "fzltkh" !important;
+}
+.fzzzht {
+	font-family: "fzzzht" !important;
+}
+.fzltqh {
+	font-family: "fzltqh";
+}
 * {
 	margin: 0 auto;
 	padding: 0;
+	font-family: "微软雅黑";
 }
 
 .bg-all {
 	width: 100%;
 	text-align: center;
 	position: absolute;
+	min-width: 1200px;
 }
 
 .border {
@@ -56,7 +80,12 @@
 .jiebao-tel-box span {
 	float: left;
 }
-
+.jiebao-menu-box {
+	width: 100%;
+	height: 50px;
+	float: left;
+	border-bottom: 1px solid #3083EB;
+}
 .jiebao-menu {
 	width: 1200px;
 	height: 50px;
@@ -87,6 +116,7 @@
 .swiper-container {
 	width: 100%;
 	height: 680px;
+	background: #000000;
 }
 
 .swiper-wrapper {
@@ -177,13 +207,15 @@ h3 {
 }
 
 .jiebao-products a {
-	width: 380px;
-	height: 490px;
+	display: block;
+	width: 100%;
+	height: 100%;
 	background: #FFFFFF;
+	float: left;
 }
 
 .jiebao-product {
-	width: 380px;
+	width: 377px;
 	height: 490px;
 	text-align: center;
 	float: left;
@@ -191,14 +223,18 @@ h3 {
 	background: #FFFFFF;
 	margin-top: 40px;
 	cursor: pointer;
+	position: relative;
+	border: 1px solid #E6E6E6;
 }
 
 .jiebao-product img {
 	margin-top: 50px;
+	border: none;
 }
 
 .product-title {
 	width: 320px;
+	margin-left: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
 	text-align: left;
@@ -206,18 +242,24 @@ h3 {
 	color: #474747;
 	font-size: 15px;
 	line-height: 30px;
-	margin-top: 40px;
 	margin-bottom: 10px;
+	text-indent: 0 !important;
+	position: absolute;
+	top: 350px;
 }
 
 .product-introduce {
 	width: 320px;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
 	text-align: left;
 	color: #858585;
 	font-size: 14px;
 	line-height: 20px;
+	font-family: "fzltkh" !important;
+	text-indent: 0 !important;
+	position: absolute;
+	top: 390px;
 }
 
 .jiebao-company-box {
@@ -444,6 +486,12 @@ h3 {
 	background-position: center;
 	float: left;
 }
+.jiebao-link-center {
+	width: 1200px;
+	height: 100%;
+	float: left;
+	margin-left: calc(50% - 600px);
+}
 .jiebao-link-left {
 	width: 580px;
 	height: 100%;
@@ -453,9 +501,9 @@ h3 {
 }
 .jiebao-link-right {
 	width: 580px;
-	padding-left: 20px;
 	height: 100%;
 	float: left;
+	padding-left: 20px;
 }
 .jiebao-link-left h3 {
 	color: #FFFFFF;
@@ -539,19 +587,27 @@ h3 {
 	background: #315EB9;
 	float: left;
 }
+.show-bg {
+	position: fixed;
+	right: 0;
+	bottom: 400px;
+	z-index: 999;
+	margin-right: -100px;
+}
 .phone-bg {
 	width: 34px;
 	padding-left: 10px;
 	height: 60px;
 	text-align: center;
 	background: #45A2E0;
-	float: right;
 	color: #FFFFFF;
 	border-top-left-radius: 30px;
 	border-bottom-left-radius: 30px;
 	margin-top: 60px;
 	line-height: 60px;
 	cursor: pointer;
+	float: right;
+	
 }
 .phone-bg .iconfont {
 	font-size: 30px;
@@ -566,7 +622,7 @@ h3 {
 	line-height: 20px;
 	margin-top: 18px;
 }
-.footer a {
+#toTop {
 	width: 50px;
 	height: 50px;
 	border-radius: 2px;
@@ -579,7 +635,286 @@ h3 {
 	margin-right: 40px;
 	margin-top: -25px;
 	cursor: pointer;
-}
-.footer a .iconfont {
 	font-size: 26px;
+	color: #FFFFFF;
+	position: fixed;
+	bottom: 50px;
+	z-index: 99999999;
+	right: 0;
+}
+
+/*about.html*/
+.about-bg1 {
+	width: 100%;
+	height: 252px;
+	float: left;
+	background: url(../img/about1.png) no-repeat;
+	background-position: center;
+}
+.about-text-box {
+	width: 1200px;
+	float: left;
+	margin-left: calc(50% - 600px);
+	color: #6A6A6A;
+	padding-bottom: 200px;
+}
+.about-text-header {
+	font-size: 30px;
+	float: left;
+	width: 100%;
+	text-align: left;
+	margin-top: 90px;
+	color: #939393;
+}
+.about-text-body {
+	width: 100%;
+	float: left;
+	text-align: left;
+	margin-top: 80px;
+	font-size: 14px;
+	line-height: 50px;
+}
+.about-text-body p {
+	text-indent: 2em;
+}
+/*link.html*/
+.link-bg1 {
+	background: url(../img/link1.png) no-repeat;
+	background-position: center;
+}
+.link-text-box p{
+	width: 500px;
+	float: right;
+	line-height: 30px;
+	font-size: 14px;
+}
+.link-text-box small {
+	font-size: 12px;
+}
+/*product*/
+.product-bg1 {
+	background: url(../img/product1.png) no-repeat;
+	background-position: center;
+}
+.pages {
+	width: 340px;
+	height: 30px;
+	float: left;
+	margin-left: calc(50% - 165px);
+	margin-top: 85px;
+	text-indent: 0 !important;
+	text-align: center;
+	color: #999999;
+}
+.pages-btn {
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #E5E5E5;
+	background: #EFEFEF;
+	width: 68px;
+	cursor: pointer;
+	float: left;
+}
+.page {
+	display: block;
+	width: 29px;
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	background: #EFEFEF;
+	border: 1px solid #E5E5E5;
+	border-left: none;
+}
+.page-number {
+	display: block;
+	height: 19px;
+	line-height: 19px;
+	text-align: center;
+	float: left;
+	margin-left: 10px;
+	margin-top: 5px;
+	width: 37px;
+	border: 1px solid #CCCCCC;
+}
+.submit {
+	width: 42px;
+	height: 30px;
+	float: left;
+	margin-left: 10px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #CCCCCC;
+	background: #EFEFEF;
+	color: #333333;
+	cursor: pointer;
+}
+/*service*/
+.service-bg1 {
+	background: url(../img/servce1.png) no-repeat;
+	background-position: center;
+}
+.service-bg1 p {
+	margin-left: 50%;
+	text-align: left;
+}
+/*news*/
+.news-bg1 {
+	background: url(../img/new1.png) no-repeat;
+	background-position: center;
+}
+.news-text-body .news-title {
+	width: 100%;
+	text-align: center;
+	font-size: 26px;
+	color: #272727;
+}
+.news-text-body .news-info {
+	width: 100%;
+	text-align: center;
+	color: #515151;
+	font-size: 12px;
+	font-family: "SimSun";
+	letter-spacing: -1;
+}
+.news-imgBg {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	width: 100%;
+	height: 372px;
+	background: url(../img/news2.png) no-repeat;
+	background-position: center;
+}
+.news-content {
+	width: calc(100% -20px);
+	text-indent: 2em;
+	margin-left: 10px;
+	color: #515151;
+	font-size: 12px;
+}
+.jiebao-news-list {
+	width: 100%;
+	list-style: none;
+	float: left;
+}
+.jiebao-news-list li {
+	width: 100%;
+	float: left;
+	height: 70px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	line-height: 26px;
+}
+.jiebao-news-list p {
+	text-indent: 0 !important;
+}
+.news-date {
+	margin: 5px 20px 0px 0px;
+	width: 90px;
+	height: 50px;
+	padding-top: 10px;
+	float: left;
+	text-align: center;
+	color: #B8B8B8;
+}
+.news-date span:nth-child(1){
+	font-size: 24px;
+}
+.jiebao-news-title {
+	width: 1090px;
+	text-align: left;
+	float: left;
+	color: #383C40;
+	font-size: 16px;
+}
+.jiebao-news-intro {
+	width: 1090px;
+	float: left;
+	color: #81868C;
+	text-align: left;
+	font-size: 14px;
+}
+/*add*/
+.add-bg1 {
+	background: url(../img/add1.png) no-repeat;
+	background-position: center;
+}
+.add-bg1 p {
+	margin-left: 50%;
+	text-align: left;
+}
+/*product*/
+.product-left {
+	width: 60%;
+	text-align: center;
+	float: left;
+	margin-top: 40px;
+}
+.product-right {
+	width: 40%;
+	text-align: center;
+	float: left;
+	line-height: 32px !important;
+	margin-top: 40px;
+	font-size: 14px;
+}
+.product-name {
+	width: 100%;
+	text-align: left;
+	color: #616161;
+	font-size: 22px;
+	margin-bottom: 20px;
+	text-indent: 0 !important;
+}
+.product-right label {
+	width: 120px;
+	float: left;
+	text-align: right;
+	color: #616161;
+	font-size: 14px;
+	text-indent: 0 !important;
+}
+.product-right span {
+	float: left;
+	display: block;
+	text-align: left;
+	width: calc(100% - 120px);
+}
+.product-right a {
+	display: block;
+	float: left;
+	width: 180px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	color: #78A8F0;
+	border: 1px solid #008AFF;
+	background: #EDF3FF;
+	margin-left: 48px;
+	margin-top: 40px;
+	cursor: pointer;
+}
+.btn-group {
+	width: 100%;
+	float: left;
+	text-indent: 0 !important;
+	margin-top: 50px;
+}
+.btn-group a {
+	display: block;
+	width: 53px;
+	height: 25px;
+	border: 1px solid #d1d1d1;
+	color: #666666;
+	text-align: center;
+	line-height: 25px;
+	float: left;
+	font-size: 10px;
+	cursor: pointer;
+}
+.btn-group a:nth-child(1){
+	margin-left: calc(60% - 126px);
+}
+.btn-group a:nth-child(2) {
+	margin-left: 40px;
 }
